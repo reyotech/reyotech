@@ -1,380 +1,264 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <title>Reyo Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS (CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
   <style>
-    * {
+    /* ======= CUSTOM CSS ======= */
+    :root {
+      --brand-color: #ff4a1c;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
-
-    body {
-      background-color: #fff;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    /* ======= HEADER COM MENU (HAMBURGUER) ======= */
-    .top-nav {
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      height: 60px;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #ff4a1c;
-      margin-left: 30px;
-    }
-
-    /* Ícone Hambúrguer */
-    .menu-icon {
-      margin-left: auto;
-      margin-right: 30px;
-      font-size: 1.8rem;
-      color: #ff4a1c;
-      cursor: pointer;
-      display: none; /* Só mostra no mobile */
-    }
-
-    nav {
-      margin-left: auto;
-      margin-right: 30px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #ff4a1c;
-    }
-
     /* ======= HERO SECTION ======= */
     .hero {
       background: linear-gradient(135deg, #f0f4ff 0%, #ffe4e4 100%);
       text-align: center;
       padding: 80px 20px;
     }
-
-    .hero h1 {
+    .hero-title {
       font-size: 2.5rem;
-      margin-bottom: 20px;
       color: #000;
+      margin-bottom: 20px;
     }
-
-    .hero p {
+    .hero-text {
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto 30px auto;
       color: #555;
     }
-
-    /* Botão Principal */
-    .btn-primary {
-      display: inline-block;
-      text-align: center;
-      background-color: #ff4a1c;
-      color: #fff;
-      font-size: 1rem;
-      padding: 15px 30px;
+    .btn-primary-custom {
+      background-color: var(--brand-color);
       border: none;
-      border-radius: 4px;
-      cursor: pointer;
       transition: background-color 0.3s ease;
-      text-decoration: none; /* Para links */
     }
-
-    .btn-primary:hover {
+    .btn-primary-custom:hover {
       background-color: #e03d0f;
     }
-
-    /* ======= SEÇÃO 2: SOLUÇÕES DE TI ======= */
-    .section-ti {
-      background-color: #f8f8f8;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .section-ti h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #000;
-    }
-
-    .section-ti p.section-intro {
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      color: #555;
-    }
-
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      flex: 1 1 300px;
-      max-width: 300px;
-      padding: 20px;
-      text-align: left;
-    }
-
-    .card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #555;
-    }
-
-    /* ======= SEÇÃO 3: DIFERENCIAIS (LARANJA) ======= */
+    /* ======= DIFERENCIAIS - LARANJA ======= */
     .orange-section {
-      background-color: #ff4a1c;
+      background-color: var(--brand-color);
       color: #fff;
       padding: 60px 20px;
       text-align: center;
     }
-
     .orange-section h2 {
-      font-size: 2rem;
       margin-bottom: 40px;
     }
-
-    .features-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .feature {
-      background-color: rgba(255,255,255,0.1);
-      border-radius: 8px;
-      flex: 1 1 300px;
-      max-width: 300px;
-      padding: 20px;
-      text-align: left;
-    }
-
-    .feature h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .feature p {
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #fefefe;
-    }
-
-    /* ======= SEÇÃO CTA ======= */
-    .call-to-action {
-      background-color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .call-to-action h2 {
-      font-size: 1.6rem;
-      color: #ff4a1c;
-      margin-bottom: 10px;
-    }
-
-    /* ======= RODAPÉ ======= */
+    /* ======= FOOTER ======= */
     footer {
       background-color: #f9f9f9;
       text-align: center;
       padding: 20px 10px;
       margin-top: 40px;
     }
-
     footer p {
       font-size: 0.9rem;
       color: #777;
       margin: 5px 0;
     }
-
-    /* ======= RESPONSIVIDADE - MOBILE ======= */
-    @media (max-width: 768px) {
-      nav {
-        display: none; /* Esconde o menu em telas pequenas; será exibido ao clicar no hamburguer */
-      }
-
-      nav.active {
-        display: block;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px;
-      }
-
-      .menu-icon {
-        display: block; /* Exibe o hambúrguer em telas menores */
-      }
-    }
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO -->
-  <header class="top-nav">
-    <div class="logo">Reyo Technologies</div>
-    <!-- Ícone Hamburguer -->
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <nav id="nav-bar">
-      <ul>
-        <li><a href="#hero">Início</a></li>
-        <li><a href="#section-ti">Soluções</a></li>
-        <li><a href="#orange-section">Diferenciais</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- ====== NAVBAR (BOOTSTRAP) ====== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" style="color: var(--brand-color);">
+        Reyo Technologies
+      </a>
+      <!-- Button Hamburguer -->
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <!-- SEÇÃO HERO -->
+      <!-- Items de navegação -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#hero">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#solucoes">Soluções</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#diferenciais">Diferenciais</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== HERO SECTION ====== -->
   <section id="hero" class="hero">
-    <h1>Soluções Inteligentes, Resultados Poderosos.</h1>
-    <p>
-      Terceirize seu desenvolvimento de software com especialistas! <br/>
-      Criamos sistemas, aplicativos e soluções tecnológicas sob medida para 
-      impulsionar o crescimento do seu negócio.
-    </p>
-    <!-- Link para WhatsApp -->
-    <a
-      class="btn-primary"
-      href="https://wa.me/5574999545622"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Solicite um Profissional de TI
-    </a>
+    <div class="container">
+      <h1 class="hero-title">Soluções Inteligentes, Resultados Poderosos.</h1>
+      <p class="hero-text">
+        Terceirize seu desenvolvimento de software com especialistas!
+        Criamos sistemas, aplicativos e soluções tecnológicas sob medida
+        para impulsionar o crescimento do seu negócio.
+      </p>
+      <a
+        href="https://wa.me/5574999545622"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-lg btn-primary-custom"
+      >
+        Solicite um Profissional de TI
+      </a>
+    </div>
   </section>
 
-  <!-- SEÇÃO 2: SOLUÇÕES DE TI SOB MEDIDA -->
-  <section id="section-ti" class="section-ti">
-    <h2>Soluções de TI Sob Medida</h2>
-    <p class="section-intro">
-      Fornecemos soluções completas de terceirização em desenvolvimento de software, 
-      ajudando empresas a inovar e crescer sem precisar de uma equipe interna.
-    </p>
-    <div class="card-container">
-      <div class="card">
-        <h3>Terceirização de Desenvolvimento de Software</h3>
-        <p>
-          Nossa equipe especializada assume o desenvolvimento do seu software, 
-          garantindo qualidade, agilidade e redução de custos.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Conectividade e Integração Inteligente</h3>
-        <p>
-          Oferecemos profissionais experientes para atuar no seu projeto, 
-          sem a necessidade de contratação interna.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Suporte e Manutenção Contínua</h3>
-        <p>
-          Garantimos a estabilidade e evolução do seu software, 
-          com suporte técnico dedicado e acompanhamento constante.
-        </p>
+  <!-- ====== SEÇÃO 2: SOLUÇÕES DE TI ====== -->
+  <section id="solucoes" class="py-5 bg-light text-center">
+    <div class="container">
+      <h2 class="mb-4">Soluções de TI Sob Medida</h2>
+      <p class="text-muted mb-5 mx-auto" style="max-width: 700px;">
+        Fornecemos soluções completas de terceirização em desenvolvimento de
+        software, ajudando empresas a inovar e crescer sem precisar de uma
+        equipe interna.
+      </p>
+      <div class="row g-4 justify-content-center">
+        <!-- Card 1 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title fs-5">
+                Terceirização de Desenvolvimento de Software
+              </h3>
+              <p class="card-text">
+                Nossa equipe especializada assume o desenvolvimento do seu
+                software, garantindo qualidade, agilidade e redução de custos.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title fs-5">
+                Conectividade e Integração Inteligente
+              </h3>
+              <p class="card-text">
+                Oferecemos profissionais experientes para atuar no seu projeto,
+                sem a necessidade de contratação interna.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title fs-5">
+                Suporte e Manutenção Contínua
+              </h3>
+              <p class="card-text">
+                Garantimos a estabilidade e evolução do seu software,
+                com suporte técnico dedicado e acompanhamento constante.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SEÇÃO 3: DIFERENCIAIS -->
-  <section id="orange-section" class="orange-section">
-    <h2>Nossos Diferenciais</h2>
-    <div class="features-container">
-      <div class="feature">
-        <h3>Equipe Dedicada de Desenvolvimento</h3>
-        <p>
-          Disponibilizamos profissionais altamente qualificados para atuar como extensão 
-          da sua empresa. Com essa abordagem, reduzimos custos, aceleramos entregas 
-          e focamos no que é essencial para o sucesso do seu projeto.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Manutenção e Suporte Contínuo</h3>
-        <p>
-          Proporcionamos atendimento técnico terceirizado para manter seus sistemas 
-          sempre atualizados e funcionais. Garantimos estabilidade, segurança 
-          e agilidade na resolução de problemas, minimizando interrupções.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Mais Foco no Seu Negócio</h3>
-        <p>
-          Deixe a área de TI conosco e concentre-se no que realmente importa: 
-          o crescimento e a inovação da sua empresa.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Consultoria em Transformação Digital</h3>
-        <p>
-          Ajudamos sua empresa a se adaptar ao mundo digital, 
-          implementando estratégias que impulsionam o crescimento e a competitividade.
-        </p>
+  <!-- ====== SEÇÃO 3: DIFERENCIAIS ====== -->
+  <section id="diferenciais" class="orange-section">
+    <div class="container">
+      <h2 class="mb-5">Nossos Diferenciais</h2>
+      <div class="row g-4 justify-content-center">
+        <!-- Feature 1 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
+            <h3 class="fs-5 fw-bold">Equipe Dedicada de Desenvolvimento</h3>
+            <p>
+              Disponibilizamos profissionais altamente qualificados para atuar
+              como extensão da sua empresa. Reduzimos custos, aceleramos entregas
+              e focamos no que é essencial para o sucesso do seu projeto.
+            </p>
+          </div>
+        </div>
+        <!-- Feature 2 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
+            <h3 class="fs-5 fw-bold">Manutenção e Suporte Contínuo</h3>
+            <p>
+              Proporcionamos atendimento técnico terceirizado para manter seus sistemas
+              sempre atualizados e funcionais. Garantimos estabilidade, segurança
+              e agilidade na resolução de problemas, minimizando interrupções.
+            </p>
+          </div>
+        </div>
+        <!-- Feature 3 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
+            <h3 class="fs-5 fw-bold">Mais Foco no Seu Negócio</h3>
+            <p>
+              Deixe a área de TI conosco e concentre-se no que realmente importa:
+              o crescimento e a inovação da sua empresa.
+            </p>
+          </div>
+        </div>
+        <!-- Feature 4 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
+            <h3 class="fs-5 fw-bold">Consultoria em Transformação Digital</h3>
+            <p>
+              Ajudamos sua empresa a se adaptar ao mundo digital,
+              implementando estratégias que impulsionam o crescimento
+              e a competitividade.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SEÇÃO CTA (OPCIONAL) -->
-  <section class="call-to-action">
-    <h2>Faça a decisão certa!</h2>
+  <!-- ====== CTA SECTION ====== -->
+  <section class="call-to-action py-5">
+    <div class="container text-center">
+      <h2 class="mb-4" style="color: var(--brand-color);">
+        Faça a decisão certa!
+      </h2>
+      <!-- Você pode incluir um botão ou qualquer outro elemento aqui -->
+      <a
+        href="https://wa.me/5574999545622"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-lg btn-primary-custom"
+      >
+        Fale Agora no WhatsApp
+      </a>
+    </div>
   </section>
 
-  <!-- RODAPÉ -->
+  <!-- ====== FOOTER ====== -->
   <footer>
     <p><strong>Reyo Technologies</strong></p>
-    <p>Feito com Durable</p>
+    <!-- "Feito com Durable" foi removido conforme solicitado -->
   </footer>
 
-  <!-- SCRIPT PARA O MENU MOBILE -->
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('nav-bar');
-      nav.classList.toggle('active');
-    }
-  </script>
+  <!-- Bootstrap JS (CDN) + Popper (necessário para alguns componentes do Bootstrap) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
