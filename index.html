@@ -2,263 +2,1279 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Reyo Technologies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Bootstrap CSS (CDN) -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-  />
+  <title>Reyo Technologies — Engenharia de Software de Elite</title>
+  <meta name="description" content="Reyo Technologies — Terceirização de desenvolvimento de software com equipes de elite. Resultados reais para empresas que não aceitam o comum." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
-    /* ======= CUSTOM CSS ======= */
-    :root {
-      --brand-color: #ff4a1c;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      color: #333;
+    /* ========================================
+       REYO TECHNOLOGIES — ULTRA MODERN
+       Dark Hero + Light Sections Hybrid
+    ======================================== */
+
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
-    /* ======= HERO SECTION ======= */
-    .hero {
-      background: linear-gradient(135deg, #f0f4ff 0%, #ffe4e4 100%);
-      text-align: center;
-      padding: 80px 20px;
+
+    :root {
+      --brand: #ff4a1c;
+      --brand-glow: #ff6b42;
+      --brand-deep: #e03510;
+      --dark: #08080a;
+      --dark-surface: #111114;
+      --dark-border: #1e1e22;
+      --dark-muted: #7a7a85;
+      --light-bg: #fafaf9;
+      --light-surface: #ffffff;
+      --light-border: #e8e8e6;
+      --light-muted: #6b6b6b;
+      --text-dark: #08080a;
+      --text-light: #f0f0ee;
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
     }
-    .hero-title {
-      font-size: 2.5rem;
-      color: #000;
-      margin-bottom: 20px;
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .hero-text {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      color: #555;
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
     }
-    .btn-primary-custom {
-      background-color: var(--brand-color);
-      border: none;
-      transition: background-color 0.3s ease;
-    }
-    .btn-primary-custom:hover {
-      background-color: #e03d0f;
-    }
-    /* ======= DIFERENCIAIS - LARANJA ======= */
-    .orange-section {
-      background-color: var(--brand-color);
+
+    ::selection {
+      background: var(--brand);
       color: #fff;
-      padding: 60px 20px;
-      text-align: center;
     }
-    .orange-section h2 {
-      margin-bottom: 40px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    /* ======= FOOTER ======= */
-    footer {
-      background-color: #f9f9f9;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 40px;
+
+    /* ========================================
+       NAVBAR — Glassmorphism
+    ======================================== */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      transition: all 0.4s var(--ease-out-expo);
     }
-    footer p {
-      font-size: 0.9rem;
-      color: #777;
+
+    .nav.scrolled {
+      background: rgba(8, 8, 10, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--text-light);
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo .logo-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--brand);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--brand), 0 0 40px rgba(255, 74, 28, 0.3);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 12px var(--brand), 0 0 40px rgba(255, 74, 28, 0.3); }
+      50% { box-shadow: 0 0 20px var(--brand), 0 0 60px rgba(255, 74, 28, 0.5); }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--dark-muted);
+      transition: color 0.3s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-light);
+    }
+
+    .nav-cta {
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      color: var(--text-light) !important;
+      background: var(--brand);
+      padding: 0.55rem 1.3rem;
+      border-radius: 8px;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 0 20px rgba(255, 74, 28, 0.2);
+    }
+
+    .nav-cta:hover {
+      background: var(--brand-glow) !important;
+      box-shadow: 0 0 30px rgba(255, 74, 28, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .nav-mobile-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-mobile-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-light);
       margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* ========================================
+       HERO — Dark, Immersive
+    ======================================== */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--dark);
+      overflow: hidden;
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 74, 28, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      transition: transform 0.6s var(--ease-out-expo), opacity 0.6s ease;
+      will-change: transform;
+      filter: blur(40px);
+    }
+
+    .hero-glow-static {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(255, 74, 28, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(60px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem 0.4rem 0.6rem;
+      border-radius: 100px;
+      background: rgba(255, 74, 28, 0.08);
+      border: 1px solid rgba(255, 74, 28, 0.15);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--brand-glow);
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-badge .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--brand);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 800;
+      color: var(--text-light);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .accent {
+      background: linear-gradient(135deg, var(--brand) 0%, #ff8a5c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--dark-muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: var(--brand);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-expo);
+      box-shadow: 0 0 30px rgba(255, 74, 28, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(255, 74, 28, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--text-light);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--dark-border);
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--text-light);
+      letter-spacing: -0.03em;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--dark-muted);
+      margin-top: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ========================================
+       SECTION DIVIDER
+    ======================================== */
+
+    .section-divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--dark-border), transparent);
+    }
+
+    /* ========================================
+       SOLUTIONS — Dark
+    ======================================== */
+
+    .solutions {
+      background: var(--dark-surface);
+      padding: 5rem 1.5rem 6rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brand-glow);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--dark-muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .solution-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--dark-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand), var(--brand-glow));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 74, 28, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .solution-card:hover::before {
+      opacity: 1;
+    }
+
+    .solution-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 74, 28, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--brand);
+    }
+
+    .solution-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--brand);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .solution-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .solution-card p {
+      font-size: 0.92rem;
+      color: var(--dark-muted);
+      line-height: 1.65;
+    }
+
+    /* ========================================
+       DIFFERENTIALS — Dark Bento Grid
+    ======================================== */
+
+    .differentials {
+      background: var(--dark);
+      padding: 5rem 1.5rem 6rem;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.25rem;
+    }
+
+    .bento-card {
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .bento-card:hover {
+      border-color: rgba(255, 74, 28, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .bento-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 74, 28, 0.04), transparent 40%);
+      pointer-events: none;
+    }
+
+    .bento-card.large {
+      grid-column: span 2;
+    }
+
+    .bento-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 74, 28, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .bento-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--brand);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bento-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .bento-card p {
+      font-size: 0.9rem;
+      color: var(--dark-muted);
+      line-height: 1.65;
+    }
+
+    .bento-card .bento-visual {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--dark-border);
+      font-family: 'DM Mono', 'SF Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--dark-muted);
+      line-height: 1.8;
+      overflow: hidden;
+    }
+
+    .bento-visual .line-accent {
+      color: var(--brand);
+    }
+
+    .bento-visual .line-light {
+      color: rgba(240, 240, 238, 0.6);
+    }
+
+    /* ========================================
+       NUMBERS / IMPACT — Light
+    ======================================== */
+
+    .impact {
+      background: var(--dark-surface);
+      padding: 5rem 1.5rem;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .impact-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .impact-item:hover {
+      border-color: var(--dark-border);
+    }
+
+    .impact-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .impact-number .brand-accent {
+      color: var(--brand);
+    }
+
+    .impact-label {
+      font-size: 0.9rem;
+      color: var(--dark-muted);
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       CTA — Dark, Dramatic
+    ======================================== */
+
+    .cta-section {
+      background: var(--dark);
+      padding: 8rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(255, 74, 28, 0.1) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text-light);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-desc {
+      font-size: 1.05rem;
+      color: var(--dark-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       FOOTER — Dark, Clean
+    ======================================== */
+
+    .footer {
+      background: var(--dark);
+      border-top: 1px solid var(--dark-border);
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      letter-spacing: -0.02em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--dark-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-light);
+    }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(122, 122, 133, 0.5);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--dark-border);
+    }
+
+    /* ========================================
+       SCROLL ANIMATIONS
+    ======================================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.35s; }
+    .reveal-delay-5 { transition-delay: 0.4s; }
+
+    /* Hero staggered entrance */
+    .hero-content > * {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: hero-enter 0.9s var(--ease-out-expo) forwards;
+    }
+
+    .hero-content > *:nth-child(1) { animation-delay: 0.2s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.35s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.5s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.65s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes hero-enter {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
+
+    @media (max-width: 1024px) {
+      .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bento-card.large {
+        grid-column: span 2;
+      }
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(8, 8, 10, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--dark-border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-mobile-btn {
+        display: block;
+      }
+
+      .nav-mobile-btn.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .nav-mobile-btn.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-mobile-btn.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-card.large {
+        grid-column: span 1;
+      }
+
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-actions a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Grain overlay for texture */
+    .grain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
     }
   </style>
 </head>
 <body>
-  <!-- ====== NAVBAR (BOOTSTRAP) ====== -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#" style="color: var(--brand-color);">
-        Reyo Technologies
-      </a>
-      <!-- Button Hamburguer -->
-      <button
-        class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarContent"
-        aria-controls="navbarContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <!-- Items de navegação -->
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#hero">Início</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#solucoes">Soluções</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#diferenciais">Diferenciais</a>
-          </li>
-        </ul>
-      </div>
+  <!-- Grain Texture Overlay -->
+  <div class="grain"></div>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-dot"></span>
+        Reyo
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+        <li>
+          <a href="https://wa.me/5574999545622" target="_blank" rel="noopener noreferrer" class="nav-cta">
+            Fale Conosco
+          </a>
+        </li>
+      </ul>
+      <button class="nav-mobile-btn" id="mobileBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- ====== HERO SECTION ====== -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <h1 class="hero-title">Soluções Inteligentes, Resultados Poderosos.</h1>
-      <p class="hero-text">
-        Terceirize seu desenvolvimento de software com especialistas!
-        Criamos sistemas, aplicativos e soluções tecnológicas sob medida
-        para impulsionar o crescimento do seu negócio.
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="hero-glow-static"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Engenharia de software sob demanda
+      </div>
+      <h1 class="hero-title">
+        Sua empresa merece<br>
+        <span class="accent">tecnologia de elite.</span>
+      </h1>
+      <p class="hero-sub">
+        Não vendemos horas. Entregamos times de engenharia completos que
+        constroem, escalam e mantêm software como se fossem seus.
       </p>
-      <a
-        href="https://wa.me/5574999545622"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-primary btn-lg btn-primary-custom"
-      >
-        Solicite um Profissional de TI
-      </a>
+      <div class="hero-actions">
+        <a href="https://wa.me/5574999545622" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Solicitar Proposta
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#solucoes" class="btn-secondary">
+          Conheça nossas soluções
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="50">0+</div>
+          <div class="hero-stat-label">Projetos entregues</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="8">0+</div>
+          <div class="hero-stat-label">Anos no mercado</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="99">0%</div>
+          <div class="hero-stat-label">Satisfação dos clientes</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ====== SEÇÃO 2: SOLUÇÕES DE TI ====== -->
-  <section id="solucoes" class="py-5 bg-light text-center">
-    <div class="container">
-      <h2 class="mb-4">Soluções de TI Sob Medida</h2>
-      <p class="text-muted mb-5 mx-auto" style="max-width: 700px;">
-        Fornecemos soluções completas de terceirização em desenvolvimento de
-        software, ajudando empresas a inovar e crescer sem precisar de uma
-        equipe interna.
+  <!-- ====== SOLUÇÕES ====== -->
+  <section class="solutions" id="solucoes">
+    <div class="section-inner">
+      <p class="section-label reveal">O que fazemos</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        Soluções que movem<br>negócios inteiros.
+      </h2>
+      <p class="section-desc reveal reveal-delay-2">
+        Atuamos em todas as etapas do ciclo de desenvolvimento —
+        do planejamento estratégico à operação contínua.
       </p>
-      <div class="row g-4 justify-content-center">
+      <div class="solutions-grid">
         <!-- Card 1 -->
-        <div class="col-md-4 col-sm-6">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="card-title fs-5">
-                Terceirização de Desenvolvimento de Software
-              </h3>
-              <p class="card-text">
-                Nossa equipe especializada assume o desenvolvimento do seu
-                software, garantindo qualidade, agilidade e redução de custos.
-              </p>
-            </div>
+        <div class="solution-card reveal reveal-delay-1">
+          <div class="solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
           </div>
+          <h3>Squads de Desenvolvimento</h3>
+          <p>
+            Times completos e dedicados que integram ao seu processo.
+            Front-end, back-end, mobile, DevOps — o stack que você precisar,
+            com a senioridade que o projeto exige.
+          </p>
         </div>
         <!-- Card 2 -->
-        <div class="col-md-4 col-sm-6">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="card-title fs-5">
-                Conectividade e Integração Inteligente
-              </h3>
-              <p class="card-text">
-                Oferecemos profissionais experientes para atuar no seu projeto,
-                sem a necessidade de contratação interna.
-              </p>
-            </div>
+        <div class="solution-card reveal reveal-delay-2">
+          <div class="solution-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           </div>
+          <h3>Integração & Arquitetura</h3>
+          <p>
+            Conectamos seus sistemas com inteligência. APIs, microsserviços
+            e pipelines de dados desenhados para escalar junto com
+            o crescimento da sua operação.
+          </p>
         </div>
         <!-- Card 3 -->
-        <div class="col-md-4 col-sm-6">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="card-title fs-5">
-                Suporte e Manutenção Contínua
-              </h3>
-              <p class="card-text">
-                Garantimos a estabilidade e evolução do seu software,
-                com suporte técnico dedicado e acompanhamento constante.
-              </p>
-            </div>
+        <div class="solution-card reveal reveal-delay-3">
+          <div class="solution-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
           </div>
+          <h3>Suporte & Evolução</h3>
+          <p>
+            Software não é projeto — é produto vivo. Mantemos seus
+            sistemas seguros, atualizados e evoluindo com novas features,
+            sem pausar a operação.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== SEÇÃO 3: DIFERENCIAIS ====== -->
-  <section id="diferenciais" class="orange-section">
-    <div class="container">
-      <h2 class="mb-5">Nossos Diferenciais</h2>
-      <div class="row g-4 justify-content-center">
-        <!-- Feature 1 -->
-        <div class="col-md-3 col-sm-6">
-          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
-            <h3 class="fs-5 fw-bold">Equipe Dedicada de Desenvolvimento</h3>
-            <p>
-              Disponibilizamos profissionais altamente qualificados para atuar
-              como extensão da sua empresa. Reduzimos custos, aceleramos entregas
-              e focamos no que é essencial para o sucesso do seu projeto.
-            </p>
-          </div>
-        </div>
-        <!-- Feature 2 -->
-        <div class="col-md-3 col-sm-6">
-          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
-            <h3 class="fs-5 fw-bold">Manutenção e Suporte Contínuo</h3>
-            <p>
-              Proporcionamos atendimento técnico terceirizado para manter seus sistemas
-              sempre atualizados e funcionais. Garantimos estabilidade, segurança
-              e agilidade na resolução de problemas, minimizando interrupções.
-            </p>
-          </div>
-        </div>
-        <!-- Feature 3 -->
-        <div class="col-md-3 col-sm-6">
-          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
-            <h3 class="fs-5 fw-bold">Mais Foco no Seu Negócio</h3>
-            <p>
-              Deixe a área de TI conosco e concentre-se no que realmente importa:
-              o crescimento e a inovação da sua empresa.
-            </p>
-          </div>
-        </div>
-        <!-- Feature 4 -->
-        <div class="col-md-3 col-sm-6">
-          <div class="p-3 h-100" style="background-color: rgba(255,255,255,0.1); border-radius: 8px;">
-            <h3 class="fs-5 fw-bold">Consultoria em Transformação Digital</h3>
-            <p>
-              Ajudamos sua empresa a se adaptar ao mundo digital,
-              implementando estratégias que impulsionam o crescimento
-              e a competitividade.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="section-divider"></div>
 
-  <!-- ====== CTA SECTION ====== -->
-  <section class="call-to-action py-5">
-    <div class="container text-center">
-      <h2 class="mb-4" style="color: var(--brand-color);">
-        Faça a decisão certa!
+  <!-- ====== DIFERENCIAIS — BENTO GRID ====== -->
+  <section class="differentials" id="diferenciais">
+    <div class="section-inner">
+      <p class="section-label reveal">Por que a Reyo</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        Não é terceirização.<br>É extensão do seu time.
       </h2>
-      <!-- Você pode incluir um botão ou qualquer outro elemento aqui -->
-      <a
-        href="https://wa.me/5574999545622"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-primary btn-lg btn-primary-custom"
-      >
-        Fale Agora no WhatsApp
+      <p class="section-desc reveal reveal-delay-2">
+        Atuamos como parte da sua empresa — com a cultura, os processos e
+        a urgência de quem está dentro.
+      </p>
+      <div class="bento-grid">
+        <!-- Large card -->
+        <div class="bento-card large reveal reveal-delay-1">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Equipes Dedicadas & Imersas</h3>
+          <p>
+            Nossos engenheiros participam dos seus dailies, entendem o contexto do negócio
+            e tomam decisões técnicas alinhadas aos objetivos da empresa. Não é staff
+            augmentation genérico — é parceria real com ownership.
+          </p>
+          <div class="bento-visual">
+            <span class="line-accent">reyo</span><span class="line-light">.squad</span>.deploy(<span class="line-accent">"v2.4.0"</span>)<br>
+            <span style="color:#3b3b44">// </span><span style="color:#4a4a56">entrega contínua, zero downtime</span><br>
+            <span class="line-accent">status</span>: <span style="color:#4ade80">operational</span> ✓
+          </div>
+        </div>
+        <!-- Regular card -->
+        <div class="bento-card reveal reveal-delay-2">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Velocidade Real</h3>
+          <p>
+            Onboarding rápido, primeiras entregas em semanas.
+            Enquanto empresas tradicionais ainda estão recrutando, nós
+            já estamos em produção.
+          </p>
+        </div>
+        <!-- Regular card -->
+        <div class="bento-card reveal reveal-delay-3">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg>
+          </div>
+          <h3>Foco no Seu Core</h3>
+          <p>
+            Deixe a complexidade técnica conosco. Sua empresa
+            concentra energia no que realmente gera receita
+            e diferenciação competitiva.
+          </p>
+        </div>
+        <!-- Regular card -->
+        <div class="bento-card reveal reveal-delay-4">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+          </div>
+          <h3>Consultoria Digital</h3>
+          <p>
+            Não só executamos — orientamos. Ajudamos a definir stack,
+            arquitetura e roadmap técnico para decisões que fazem
+            sentido a longo prazo.
+          </p>
+        </div>
+        <!-- Large card -->
+        <div class="bento-card large reveal reveal-delay-5">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Manutenção que Não Para</h3>
+          <p>
+            Monitoramento ativo, correções rápidas, atualizações constantes.
+            Seu software evolui sem interrupções, com SLAs claros e
+            comunicação transparente — porque estabilidade não é luxo, é requisito.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ====== NÚMEROS DE IMPACTO ====== -->
+  <section class="impact" id="impacto">
+    <div class="section-inner">
+      <div class="impact-grid">
+        <div class="impact-item reveal">
+          <div class="impact-number"><span class="counter" data-target="50">0</span><span class="brand-accent">+</span></div>
+          <div class="impact-label">Projetos entregues<br>com sucesso</div>
+        </div>
+        <div class="impact-item reveal reveal-delay-1">
+          <div class="impact-number"><span class="counter" data-target="98">0</span><span class="brand-accent">%</span></div>
+          <div class="impact-label">Taxa de retenção<br>de clientes</div>
+        </div>
+        <div class="impact-item reveal reveal-delay-2">
+          <div class="impact-number"><span class="counter" data-target="40">0</span><span class="brand-accent">%</span></div>
+          <div class="impact-label">Redução média<br>de custos com TI</div>
+        </div>
+        <div class="impact-item reveal reveal-delay-3">
+          <div class="impact-number"><span class="brand-accent">&lt;</span><span class="counter" data-target="48">0</span><span class="brand-accent">h</span></div>
+          <div class="impact-label">Tempo médio de<br>onboarding de squads</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ====== CTA FINAL ====== -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-content reveal">
+      <h2 class="cta-title">
+        Pronto para ter um time<br>de engenharia de verdade?
+      </h2>
+      <p class="cta-desc">
+        Vamos conversar sobre como podemos escalar sua operação
+        de tecnologia — sem burocracia, sem surpresas.
+      </p>
+      <a href="https://wa.me/5574999545622" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Falar com a Reyo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </section>
 
   <!-- ====== FOOTER ====== -->
-  <footer>
-    <p><strong>Reyo Technologies</strong></p>
-    <!-- "Feito com Durable" foi removido conforme solicitado -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Reyo Technologies</div>
+      <ul class="footer-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li>
+          <a href="https://wa.me/5574999545622" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </li>
+      </ul>
+      <p class="footer-copy">
+        &copy; 2026 Reyo Technologies. Todos os direitos reservados.
+      </p>
+    </div>
   </footer>
 
-  <!-- Bootstrap JS (CDN) + Popper (necessário para alguns componentes do Bootstrap) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ====== SCRIPTS ====== -->
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileBtn.addEventListener('click', () => {
+      mobileBtn.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileBtn.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Hero cursor glow
+    const heroGlow = document.getElementById('heroGlow');
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = e.clientX - rect.left - 300;
+      const y = e.clientY - rect.top - 300;
+      heroGlow.style.transform = `translate(${x}px, ${y}px)`;
+      heroGlow.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', () => {
+      heroGlow.style.opacity = '0';
+    });
+
+    // Bento cards mouse tracking
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // Scroll reveal (Intersection Observer)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const duration = 2000;
+          const start = performance.now();
+          const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const value = Math.round(easeOutQuart(progress) * target);
+            el.textContent = value;
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    // Hero stat counters
+    document.querySelectorAll('.hero-stat-number').forEach(el => {
+      const target = parseInt(el.dataset.count);
+      if (!target) return;
+      const suffix = el.textContent.replace('0', '');
+      const duration = 2000;
+      const start = performance.now();
+      const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+      setTimeout(() => {
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          el.textContent = Math.round(easeOutQuart(progress) * target) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      }, 1200);
+    });
+  </script>
 </body>
 </html>
